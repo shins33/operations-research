@@ -110,6 +110,7 @@ def penalty(arr):
         if not len(n) > 1:
             c_lst.append(n[0])
         else:c_lst.append(n[1]-n[0])
+    
     return r_lst,c_lst
 
 def vam_asgn(trans_t):
@@ -186,7 +187,6 @@ def vam_ifs(trans_t_o,supl_o,dem_o,cost_mat):
         assign_mat[pos[0],pos[1]]  = max_pos  
         trans_t = itrT
 
-
         if supl_ch[pos_check[0]] == 0 :
             if r_check_mat[pos[0]] == 0:
                 r_check_mat[pos[0]] = 1
@@ -198,7 +198,9 @@ def vam_ifs(trans_t_o,supl_o,dem_o,cost_mat):
                 c_check_mat[pos[1]] = 1
             else:
                 c_check_mat[pos[1]+1] = 1
-
+        flag = np.size(trans_t)
+        if (not flag):break
+    if m+n-1 > np.count_nonzero(assign_mat):print("This solution is degenerate")
     print("cost\n",cost_mat,"\nAssignment\n",assign_mat)  
     final_mat = np.multiply(assign_mat,cost_mat)
 
