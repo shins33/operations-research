@@ -17,6 +17,8 @@ if oprtn == 1:
 if sum(supl_in) == sum(dem_in):
     print("Balanced Problem")
     NW_ifs(trans_t_in,supl_in,dem_in,cost_mat_in)
+    LC_ifs(trans_t_in,supl_in,dem_in,cost_mat_in)
+    vam_ifs(trans_t_in,supl_in,dem_in,cost_mat_in)
 
 else:
     print("Unbalanced Problem")
@@ -26,6 +28,8 @@ else:
         diff = sum(supl_in)-sum(dem_in)
         dem_in.append(diff)
         NW_ifs(trans_t,supl_in,dem_in,cost_mat_in)
+        LC_ifs(trans_t_in,supl_in,dem_in,cost_mat_in)
+        vam_ifs(trans_t_in,supl_in,dem_in,cost_mat_in)
         
     else:
         dumCol = np.zeros(shape=(1,n))
@@ -33,3 +37,5 @@ else:
         diff = sum(dem_in)-sum(supl_in)
         supl_in.append(diff)
         NW_ifs(trans_t,supl_in,dem_in,cost_mat_in)
+        LC_ifs(trans_t_in,supl_in,dem_in,cost_mat_in)
+        vam_ifs(trans_t_in,supl_in,dem_in,cost_mat_in)
